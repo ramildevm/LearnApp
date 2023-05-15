@@ -1,0 +1,89 @@
+﻿<Window x:Class="LearnApp.Windows.MakeEditServiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LearnApp.Windows"
+        mc:Ignorable="d"
+        Title="Услуга" Icon="\Resources\school_logo.ico" Height="500" Width="800" MinHeight="450" MinWidth="800">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#04A0FF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Resources/school_logo.png" Margin="15"/>
+            <Button Content="Школа языков «Леарн»" Foreground="White" Click="ButtonExit_Click" Grid.Column="1" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Идентификатор:" Grid.Row="0" Name="labelId"/>
+            <TextBox Text="{Binding Id}" Name="ServiceIdTextBox" Grid.Row="0" Grid.Column="1" IsReadOnly="True"/>
+            
+            <TextBlock Text="Название услуги:" Grid.Row="1"/>
+            <TextBox Text="{Binding ServiceName, Mode=TwoWay}" Name="ServiceNameTextBox" Grid.Row="1" Grid.Column="1"/>
+
+            <TextBlock Text="Описание:" Grid.Row="2"/>
+            <TextBox Text="{Binding Description, Mode=TwoWay}" Name="DescriptionTextBox" Grid.Row="2" Grid.Column="1"/>
+
+            <TextBlock Text="Главное изображение:" Grid.Row="3" VerticalAlignment="Center"/>
+            <UniformGrid Columns="2" Grid.Row="3" Grid.Column="1">
+                <Image Height="100" Name="imgPhoto" Width="100"/>
+                <Button  x:Name="LogoButton" Click="ButtonLoadImg_Click" VerticalAlignment="Center" Background="#43DCFE" Content="Выбрать файл"/>
+            </UniformGrid>
+
+            <TextBlock Text="Продолжительность:" Grid.Row="4"/>
+            <UniformGrid Columns="2" Grid.Row="4" Grid.Column="1" Margin="0,5,5,5">
+                <TextBox Text="{Binding Duration, Mode=TwoWay}" Name="DurationTextBox" MaxLength="5"/>
+                <ComboBox Name="TimeTypeCombBox" Margin="5"/>
+            </UniformGrid>
+
+            <TextBlock Text="Стоимость:" Grid.Row="5"/>
+            <TextBox Text="{Binding Cost, Mode=TwoWay}" Name="CostTextBox" Grid.Row="5" Grid.Column="1" MaxLength="9"/>
+
+            <TextBlock Text="Скидка:" Grid.Row="6"/>
+            <TextBox Text="{Binding Discount, Mode=TwoWay}" Name="DiscountTextBox" Grid.Row="6" Grid.Column="1" MaxLength="3"/>
+
+        </Grid>
+        <Grid Grid.Row="3" Background="#F9969E">
+            <Button Name="btnAddService" Width="150" Height="50" HorizontalAlignment="Right" Margin="10" Background="White" Click="btnAddService_Click" Content="Сохранить" />
+            <Button Name="btnPhotos" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Background="White" Click="btnImagesService_Click" Content="Фотографии" />
+            <Button Name="btnRemoveService" Width="150" Height="50" HorizontalAlignment="Left" Margin="10" Background="White" Click="btnRemoveService_Click" Content="Удалить" />
+        </Grid>
+    </Grid>
+</Window>
