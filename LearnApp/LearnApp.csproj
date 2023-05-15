@@ -93,6 +93,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\ServiceObject.cs" />
+    <Compile Include="ViewModels\ServiceRecordObject.cs" />
     <Compile Include="Windows\AdminServiceRecordWindow.xaml.cs">
       <DependentUpon>AdminServiceRecordWindow.xaml</DependentUpon>
     </Compile>

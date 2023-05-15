@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LearnApp.Windows"
         mc:Ignorable="d"
-        Title="AdminServiceRecordWindow" Height="450" Width="800">
+        Title="Записи услуг" Icon="\Resources\school_logo.ico" Height="600" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
-        
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#04A0FF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/Resources/school_logo.png" Margin="15"/>
+            <Button Content="Школа языков «Леарн»" Foreground="White" Click="ButtonExit_Click" Grid.Column="1" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Button Content="Список услуг" Foreground="White" Click="ButtonServices_Click" Grid.Column="2" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Button Content="Добавить запись" Foreground="White" Click="ButtonAdd_Click" Grid.Column="3" Background="Transparent" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+
+        </Grid>
+        <ScrollViewer Grid.Row="1" Background="#dcdcdc" FontFamily="Comic Sans MS" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <DataGrid Name="recordsGridPanel" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Наименование услуги" Binding="{Binding Service.ServiceName}"/>
+                    <DataGridTextColumn Header="ФИО клиента" Binding="{Binding FIO}"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Client.Email}"/>
+                    <DataGridTextColumn Header="Телефон" Binding="{Binding Client.Phone}"/>
+                    <DataGridTextColumn Header="Дата и время" Binding="{Binding ServiceRecord.ServiceStart}"/>
+                    <DataGridTemplateColumn Header="Осталось">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Time}" Foreground="{Binding TimeColor}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <StackPanel Grid.Row="2" Background="#04A0FF">
+        <CheckBox  Content="Толкьо ближайщие записи" Foreground="White" FontFamily="Comic Sans MS" Margin="5" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+        </StackPanel>
     </Grid>
 </Window>
