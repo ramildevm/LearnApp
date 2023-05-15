@@ -64,7 +64,6 @@
             <TextBlock Text="Главное изображение:" Grid.Row="3" VerticalAlignment="Center"/>
             <UniformGrid Columns="2" Grid.Row="3" Grid.Column="1">
                 <Image Height="100" Name="imgPhoto" Width="100"/>
-                <Button  x:Name="LogoButton" Click="ButtonLoadImg_Click" VerticalAlignment="Center" Background="#43DCFE" Content="Выбрать файл"/>
             </UniformGrid>
 
             <TextBlock Text="Продолжительность:" Grid.Row="4"/>
@@ -81,8 +80,6 @@
 
         </Grid>
         <Grid Grid.Row="3" Background="#F9969E">
-            <Button Name="btnAddService" Width="150" Height="50" HorizontalAlignment="Right" Margin="10" Background="White" Click="btnAddService_Click" Content="Сохранить" />
-            <Button Name="btnPhotos" Width="150" Height="50" HorizontalAlignment="Center" Margin="10" Background="White" Click="btnImagesService_Click" Content="Фотографии" />
             <Button Name="btnRemoveService" Width="150" Height="50" HorizontalAlignment="Left" Margin="10" Background="White" Click="btnRemoveService_Click" Content="Удалить" />
         </Grid>
     </Grid>

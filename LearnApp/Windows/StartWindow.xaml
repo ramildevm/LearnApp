@@ -32,7 +32,7 @@
         <StackPanel MinWidth="200" Height="Auto"  Background="#E7FABF">
             <TextBlock Text="Добро пожаловать!" HorizontalAlignment="Center" />
             <TextBlock Text="Введите код:" />
-            <TextBox Name="txtCode" Text="0000"/>
+            <TextBox Name="txtCode" Text=""/>
             <Button Content="Войти" Foreground="White" Background="#04A0FF" Click="btnLogin_Click"/>
             <Button Content="Войти как гость" Foreground="White" Background="#04A0FF" Click="btnGuest_Click"/>
         </StackPanel>
