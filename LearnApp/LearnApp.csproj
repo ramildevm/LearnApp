@@ -80,6 +80,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\MakeServiceRecordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\ServicePhotosWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +109,9 @@
     </Compile>
     <Compile Include="Windows\MakeEditServiceWindow.xaml.cs">
       <DependentUpon>MakeEditServiceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MakeServiceRecordWindow.xaml.cs">
+      <DependentUpon>MakeServiceRecordWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ServicePhotosWindow.xaml.cs">
       <DependentUpon>ServicePhotosWindow.xaml</DependentUpon>
