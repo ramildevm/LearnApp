@@ -68,6 +68,11 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="10" Background="{Binding PanelColor}">
+                            <Grid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Добавить запись клиента" Tag="{Binding Service}" Click="MenuItem_Click"/>
+                                </ContextMenu>
+                            </Grid.ContextMenu>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120"/>
                                 <ColumnDefinition />

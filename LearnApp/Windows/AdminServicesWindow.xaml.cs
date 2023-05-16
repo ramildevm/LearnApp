@@ -183,5 +183,11 @@ namespace LearnApp.Windows
             new AdminServiceRecordWindow().Show();
             this.Close();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            new MakeServiceRecordWindow((sender as MenuItem).Tag as Service).Show();
+            this.Close();
+        }
     }
 }

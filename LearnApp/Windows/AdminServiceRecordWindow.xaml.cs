@@ -77,7 +77,7 @@ namespace LearnApp.Windows
                     Brush color = Brushes.Black;
                     if (sr.ServiceStart >= DateTime.Now)
                     {
-                        left = DateTime.Now - sr.ServiceStart;
+                        left = sr.ServiceStart - DateTime.Now;
                         if(left.TotalMilliseconds < 3600000)
                         {
                             color = Brushes.Red;
@@ -92,7 +92,7 @@ namespace LearnApp.Windows
                         Service = s,
                         Client = c,
                         FIO = $"{c.LastName} {c.FirstName} {c.Patronymic}",
-                        Time = $"{left.Hours} часов {left.Minutes} минут",
+                        Time = $"{Math.Floor(left.TotalHours)} часов {left.Minutes} минут",
                         TimeColor = color
                 };
                     serviceRecordsList.Add(sro);
@@ -112,11 +112,6 @@ namespace LearnApp.Windows
         {
             new AdminServicesWindow().Show();
             this.Close();
-        }
-
-        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)

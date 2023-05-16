@@ -32,12 +32,10 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image Source="/Resources/school_logo.png" Margin="15"/>
             <Button Content="Школа языков «Леарн»" Foreground="White" Click="ButtonExit_Click" Grid.Column="1" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
-            <Button Content="Список услуг" Foreground="White" Click="ButtonServices_Click" Grid.Column="2" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
-            <Button Content="Добавить запись" Foreground="White" Click="ButtonAdd_Click" Grid.Column="3" Background="Transparent" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Button Content="Список услуг" Foreground="White" Click="ButtonServices_Click" Grid.Column="2" Background="Transparent" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
 
         </Grid>
         <ScrollViewer Grid.Row="1" Background="#dcdcdc" FontFamily="Comic Sans MS" ScrollViewer.HorizontalScrollBarVisibility="Visible">
