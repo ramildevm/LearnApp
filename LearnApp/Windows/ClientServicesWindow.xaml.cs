@@ -67,9 +67,7 @@ namespace LearnApp.Windows
                         OldPriceVisibility = visibility,
                         MainImage = folderPath + service.MainImage
                     };
-                    Console.WriteLine(folderPath + service.MainImage);
                     serviceObjectsList.Add(serviceObject);
-                    db.Entry(service).State = System.Data.Entity.EntityState.Modified;
                 }
             }
             servicesPanel.ItemsSource = serviceObjectsList;
@@ -82,8 +80,7 @@ namespace LearnApp.Windows
                 serviceList.Clear();
                 serviceList = db.Service.ToList();
                 if (searchFilter != "")
-                    serviceList = serviceList.Where(s=>s.ServiceName.Contains(searchFilter)).ToList();
-                
+                    serviceList = serviceList.Where(s=>s.ServiceName.Contains(searchFilter)).ToList();                
                 switch (discountMark)
                 {
                     case 0:
@@ -112,33 +109,26 @@ namespace LearnApp.Windows
                         break;
                 }
                 txtCount.Text = $"Выведено услуг: {serviceList.Count()} из {db.Service.Count()}.";
-
             }
 
-
         }
-
-
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             new StartWindow().Show();
             this.Close();
         }
-
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             searchFilter = (sender as TextBox).Text;
             LoadData();
             LoadServices();
         }
-
         private void myComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             discountMark = (sender as ComboBox).SelectedIndex;
             LoadData();
             LoadServices();
         }
-
         private void comboBoxSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             sortMark = (sender as ComboBox).SelectedIndex;

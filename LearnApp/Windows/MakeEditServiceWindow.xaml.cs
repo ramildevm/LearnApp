@@ -23,9 +23,7 @@ namespace LearnApp.Windows
     public partial class MakeEditServiceWindow : Window
     {
         private Service Service;
-
         private List<ServicePhoto> addedPhotos { get; set; } = new List<ServicePhoto>();
-
         public MakeEditServiceWindow(Service service)
         {
             InitializeComponent();
@@ -58,8 +56,6 @@ namespace LearnApp.Windows
                 imgPhoto.Source = new BitmapImage(new Uri(System.IO.Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\Resources\\" + Service.MainImage));
             }
         }
-
-
         private void ButtonLoadImg_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
@@ -68,7 +64,6 @@ namespace LearnApp.Windows
             op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
                         "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
                         "Portable Network Graphic (*.png)|*.png";
-
             bool? myResult;
             myResult = op.ShowDialog();
             if (myResult != null && myResult == true)
@@ -83,7 +78,6 @@ namespace LearnApp.Windows
             }
             MessageBox.Show("Изображение загружено!");
         }
-
         private void btnRemoveService_Click(object sender, RoutedEventArgs e)
         {
             using (var db = new EntityModel())
@@ -94,7 +88,6 @@ namespace LearnApp.Windows
             new AdminServicesWindow().Show();
             this.Close();
         }
-
         private void btnAddService_Click(object sender, RoutedEventArgs e)
         {
             using (var db = new EntityModel())
@@ -130,7 +123,6 @@ namespace LearnApp.Windows
                         {
                             MessageBox.Show("Продолжительность не должно превышать 4 часов!");
                             return;
-
                         }
                         break;
                     case 1:
@@ -138,7 +130,6 @@ namespace LearnApp.Windows
                         {
                             MessageBox.Show("Продолжительность не должно превышать 4 часов!");
                             return;
-
                         }
                         break;
                     case -1:
@@ -184,14 +175,11 @@ namespace LearnApp.Windows
                 }
             }
         }
-
-
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             new AdminServicesWindow().Show();
             this.Close();
         }
-
         private void btnImagesService_Click(object sender, RoutedEventArgs e)
         {
             var photosWindow = new ServicePhotosWindow(Service);

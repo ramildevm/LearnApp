@@ -94,6 +94,5 @@
             </ItemsControl>
         </ScrollViewer>
         <TextBlock Margin="0" Padding="5" Foreground="White" Name="txtCount" Grid.Row="3" Background="#04A0FF"/>
-        
     </Grid>
 </Window>

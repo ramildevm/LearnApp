@@ -32,7 +32,6 @@ namespace LearnApp.Windows
             LoadDataSet();
             LoadData();
         }
-
         private void LoadDataSet()
         {
             using (var db = new EntityModel())
@@ -57,13 +56,11 @@ namespace LearnApp.Windows
             myTimer.Elapsed += MyTimer_Elapsed;
             myTimer.AutoReset = true;
         }
-
         private void MyTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             LoadDataSet();
             LoadData();
         }
-
         private void LoadData()
         {
             var serviceRecordsList = new List<ServiceRecordObject>();
@@ -85,7 +82,6 @@ namespace LearnApp.Windows
                     }
                     else
                         left = new TimeSpan();
-
                     var sro = new ServiceRecordObject()
                     {
                         ServiceRecord = sr,
@@ -97,30 +93,25 @@ namespace LearnApp.Windows
                 };
                     serviceRecordsList.Add(sro);
                 }
-
             }
             recordsGridPanel.ItemsSource = serviceRecordsList;
         }
-
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             new StartWindow().Show();
             this.Close();
         }
-
         private void ButtonServices_Click(object sender, RoutedEventArgs e)
         {
             new AdminServicesWindow().Show();
             this.Close();
         }
-
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             flagNearRecords = true;
             LoadDataSet();
             LoadData();
         }
-
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             flagNearRecords = false;

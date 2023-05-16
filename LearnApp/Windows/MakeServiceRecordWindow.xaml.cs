@@ -22,21 +22,13 @@ namespace LearnApp.Windows
     public partial class MakeServiceRecordWindow : Window
     {
         private int duration = 0;
-
         public Service Service { get; }
-
-        public MakeServiceRecordWindow()
-        {
-            InitializeComponent();
-        }
-
         public MakeServiceRecordWindow(Service service)
         {
             InitializeComponent();
             Service = service;
             LoadData();
         }
-
         private void LoadData()
         {
             NameTextBox.Text = Service.ServiceName;
@@ -46,21 +38,17 @@ namespace LearnApp.Windows
                 duration = duration / 60;
             }
             DurationTextBox.Text = duration.ToString() + " минут";
-
             using (var db = new EntityModel())
             {
                 var clients = db.Client.ToList();
                 ClientCombBox.ItemsSource = clients;
             }
         }
-
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             new AdminServicesWindow().Show();
             this.Close();
         }
-
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if(String.IsNullOrWhiteSpace(timeTextBox.Text)|| String.IsNullOrWhiteSpace(DatePicker.Text))
@@ -96,10 +84,8 @@ namespace LearnApp.Windows
         public bool IsTimeFormat(string input)
         {
             string timeRegex = @"^([0-1]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$";
-
             return Regex.IsMatch(input, timeRegex);
         }
-
         private void timeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if(IsTimeFormat((sender as TextBox).Text))
@@ -109,11 +95,9 @@ namespace LearnApp.Windows
 
                 string timeString = end.ToString("hh\\:mm\\:ss");
                 txtDuracity.Text = "Время окончания: " + timeString;
-            }
+            }            
             else
-            {
                 txtDuracity.Text = "";
-            }
         }
     }
 }

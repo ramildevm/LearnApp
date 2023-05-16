@@ -51,34 +51,26 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
             <TextBlock Text="Идентификатор:" Grid.Row="0" Name="labelId"/>
-            <TextBox Text="{Binding Id}" Name="ServiceIdTextBox" Grid.Row="0" Grid.Column="1" IsReadOnly="True"/>
-            
+            <TextBox Text="{Binding Id}" Name="ServiceIdTextBox" Grid.Row="0" Grid.Column="1" IsReadOnly="True"/>            
             <TextBlock Text="Название услуги:" Grid.Row="1"/>
             <TextBox Text="{Binding ServiceName, Mode=TwoWay}" Name="ServiceNameTextBox" Grid.Row="1" Grid.Column="1"/>
-
             <TextBlock Text="Описание:" Grid.Row="2"/>
             <TextBox Text="{Binding Description, Mode=TwoWay}" Name="DescriptionTextBox" Grid.Row="2" Grid.Column="1"/>
-
             <TextBlock Text="Главное изображение:" Grid.Row="3" VerticalAlignment="Center"/>
             <UniformGrid Columns="2" Grid.Row="3" Grid.Column="1">
                 <Image Height="100" Name="imgPhoto" Width="100"/>
                 <Button  x:Name="LogoButton" Click="ButtonLoadImg_Click" VerticalAlignment="Center" Background="#E7FABF" Content="Выбрать файл"/>
             </UniformGrid>
-
             <TextBlock Text="Продолжительность:" Grid.Row="4"/>
             <UniformGrid Columns="2" Grid.Row="4" Grid.Column="1" Margin="0,5,5,5">
                 <TextBox Text="{Binding Duration, Mode=TwoWay}" Name="DurationTextBox" MaxLength="5"/>
                 <ComboBox Name="TimeTypeCombBox" Margin="5"/>
             </UniformGrid>
-
             <TextBlock Text="Стоимость:" Grid.Row="5"/>
             <TextBox Text="{Binding Cost, Mode=TwoWay}" Name="CostTextBox" Grid.Row="5" Grid.Column="1" MaxLength="9"/>
-
             <TextBlock Text="Скидка:" Grid.Row="6"/>
             <TextBox Text="{Binding Discount, Mode=TwoWay}" Name="DiscountTextBox" Grid.Row="6" Grid.Column="1" MaxLength="3"/>
-
         </Grid>
         <Grid Grid.Row="3" Background="#04A0FF">
             <Button Name="btnAddService" Width="150" Height="50" HorizontalAlignment="Right" Margin="10" Background="White" Click="btnAddService_Click" Content="Сохранить" />

@@ -149,13 +149,11 @@ namespace LearnApp.Windows
             LoadData();
             LoadServices();
         }
-
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
             var service = ((((sender as Button).Parent as StackPanel).Parent as Grid).DataContext as ServiceObject).Service;
             new MakeEditServiceWindow(service).Show();
             this.Close();
-
         }
 
         private void myComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -177,13 +175,11 @@ namespace LearnApp.Windows
             new MakeEditServiceWindow(null).Show();
             this.Close();
         }
-
         private void ButtonRecords_Click(object sender, RoutedEventArgs e)
         {
             new AdminServiceRecordWindow().Show();
             this.Close();
         }
-
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             new MakeServiceRecordWindow((sender as MenuItem).Tag as Service).Show();

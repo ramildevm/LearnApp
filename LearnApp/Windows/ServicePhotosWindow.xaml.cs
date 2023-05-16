@@ -29,7 +29,6 @@ namespace LearnApp.Windows
             this.Service = service;
             LoadData();
         }
-
         private void LoadData()
         {
             if (Service.Id != 0)
@@ -44,7 +43,6 @@ namespace LearnApp.Windows
                 }
             }
         }
-
         private void makeServicePhotoPanel(string folderpath, ServicePhoto photo)
         {
             var imagePanel = new Grid();
@@ -56,7 +54,6 @@ namespace LearnApp.Windows
             imagePanel.Children.Add(delButton);
             imagesPanel.Children.Add(imagePanel);
         }
-
         private void DelButton_Click(object sender, RoutedEventArgs e)
         {
             var sp = ((sender as Button).Tag) as ServicePhoto;
@@ -75,9 +72,7 @@ namespace LearnApp.Windows
                 imagesPanel.Children.Remove((sender as Button).Parent as Grid);
             }
         }
-
         public Service Service { get; }
-
         private void btnAddPhoto_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
@@ -86,14 +81,12 @@ namespace LearnApp.Windows
             op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
                         "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
                         "Portable Network Graphic (*.png)|*.png";
-
             bool? myResult;
             myResult = op.ShowDialog();
             if (myResult != null && myResult == true)
             {
                 string fileName = Guid.NewGuid() + op.SafeFileName;
                 string newFilePath = System.IO.Path.Combine(folderpath, fileName);
-
                 File.Copy(op.FileName, newFilePath);
                 var sp = new ServicePhoto() { PhotoPath = fileName, ServiceId = Service.Id };
                 AddedPhotos.Add(sp);
@@ -101,7 +94,6 @@ namespace LearnApp.Windows
             }
             MessageBox.Show("Изображение загружено!");
         }
-
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

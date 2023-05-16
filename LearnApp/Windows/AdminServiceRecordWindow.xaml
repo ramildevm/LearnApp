@@ -8,16 +8,7 @@
         Title="Записи услуг" Icon="\Resources\school_logo.ico" Height="600" Width="800" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid.Resources>
-            <Style TargetType="Button">
-                <Setter Property="FontFamily" Value="Comic Sans MS"/>
-                <Setter Property="Padding" Value="10"/>
-                <Setter Property="Margin" Value="10"/>
-            </Style>
             <Style TargetType="TextBlock">
-                <Setter Property="FontFamily" Value="Comic Sans MS"/>
-                <Setter Property="Margin" Value="5"/>
-            </Style>
-            <Style TargetType="TextBox">
                 <Setter Property="FontFamily" Value="Comic Sans MS"/>
                 <Setter Property="Margin" Value="5"/>
             </Style>
@@ -36,7 +27,6 @@
             <Image Source="/Resources/school_logo.png" Margin="15"/>
             <Button Content="Школа языков «Леарн»" Foreground="White" Click="ButtonExit_Click" Grid.Column="1" Background="Transparent" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
             <Button Content="Список услуг" Foreground="White" Click="ButtonServices_Click" Grid.Column="2" Background="Transparent" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
-
         </Grid>
         <ScrollViewer Grid.Row="1" Background="#dcdcdc" FontFamily="Comic Sans MS" ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <DataGrid Name="recordsGridPanel" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
